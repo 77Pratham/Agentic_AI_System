@@ -1,0 +1,11 @@
+langchain
+langchain-google-genai
+langchain-tavily
+langgraph
+streamlit
+tavily-python
+python-dotenv
+requests
+beautifulsoup4
+reportlab
+pypdf
