@@ -187,10 +187,6 @@ python agent.py
 # Returns JSON output with answer, sources, and research data
 ```
 
-## License
-
-MIT
-
 ## Author
 
 Pratham R
