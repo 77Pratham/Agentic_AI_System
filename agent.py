@@ -185,10 +185,10 @@ def code_executor(state: AgentState) -> AgentState:
     code = state.get("generated_code", "")
     if not code:
         return {**state, "execution_output": "", "execution_error": "No code."}
-    with tempfile.NamedTemporaryFile(mode="w", suffix=".py", delete=False) as f:
+    with tempfile.NamedTemporaryFile(mode="w", suffix=".py", delete=False, encoding="utf-8") as f:
         f.write(code); tmp = f.name
     try:
-        res = subprocess.run([sys.executable, tmp], capture_output=True, text=True, timeout=15)
+        res = subprocess.run([sys.executable, tmp], capture_output=True, text=True, encoding="utf-8", timeout=15)
         return {**state, "execution_output": res.stdout.strip(),
                 "execution_error": res.stderr.strip()}
     except subprocess.TimeoutExpired:
